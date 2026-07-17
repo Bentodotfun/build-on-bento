@@ -1,7 +1,5 @@
 # Suggested PR labels
 
-Create these once under **Issues → Labels** (or via `gh label create`):
-
 | Label | Color (hex) | Meaning |
 |-------|-------------|---------|
 | `accepted` | `0E8A16` | Submission accepted |
