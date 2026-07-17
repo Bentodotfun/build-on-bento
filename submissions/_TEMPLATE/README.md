@@ -55,7 +55,7 @@ For each surface: put **Yes** or **No**. If Yes, briefly describe how (SDK metho
 | Polymarket bridge | | |
 | Agents | | |
 | Realtime / social | | |
-| Credits (testnet) / USDC | | |
+| Others | | |
 
 **Builder API key:** minted from [docs.bento.fun - Builder API key](https://docs.bento.fun/concepts/builder-api-key) (testnet). Do **not** commit keys.
 
