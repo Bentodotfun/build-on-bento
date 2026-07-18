@@ -1,0 +1,30 @@
+{
+  "name": "pulse-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "hour0": "tsx src/hour0-check.ts",
+    "hour0:anakin": "tsx src/anakin-latency-check.ts",
+    "generator": "tsx src/generator.ts",
+    "resolver": "tsx src/resolver.ts",
+    "status": "tsx src/status-probe.ts",
+    "create": "tsx src/create-one.ts",
+    "faucet": "tsx src/faucet.ts",
+    "seed": "tsx src/seed.ts",
+    "resolve:dry-run": "tsx src/dry-run-resolve.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@bento.fun/sdk": "^0.7.0",
+    "viem": "^2.29.2",
+    "axios": "^1.12.0",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.7",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
