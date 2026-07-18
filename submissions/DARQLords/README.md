@@ -6,7 +6,7 @@
 
 | Field | Your answer |
 |-------|-------------|
-| **Project name** | Bento Bookie |
+| **Project name** | Bento Hotline |
 | **Tagline** | A conversational, high-energy AI voice agent that lets users discover and participate in Bento prediction markets over a phone call. |
 | **Team name** | DARQLords |
 | **Team members** | Pawan Ajjar K, Sam Christian |
