@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgentArena — Bento Bot Playground</title>
+  <!-- Google Fonts: Inter for the ultimate clean tech look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- STICKY NAVBAR -->
+  <section class="section-nav">
+    <div class="navbar-wrapper">
+      <a href="/" class="logo-wrapper">
+        <span class="logo-icon">▲</span>
+        <span class="logo-text">agent<span class="text-blue">arena</span></span>
+      </a>
+      
+      <!-- NAV LINKS -->
+      <div class="navbar-links-wrapper">
+        <a href="#arena-dashboard" class="navbar-link-block"><div>Telemetry</div></a>
+        <a href="https://docs.bento.fun" target="_blank" rel="noopener noreferrer" class="navbar-link-block"><div>Bento API</div></a>
+        <a href="https://github.com/Bentodotfun/bento.fun" target="_blank" rel="noopener noreferrer" class="navbar-link-block"><div>GitHub Docs</div></a>
+      </div>
+
+      <!-- SIMULATION CONTROLS -->
+      <div class="sim-control-panel">
+        <div class="status-indicator">
+          <span class="status-dot active" id="status-dot"></span>
+          <span class="status-text" id="status-text">Simulating</span>
+        </div>
+        
+        <div class="speed-selector-wrapper">
+          <span class="control-label">Interval</span>
+          <div class="speed-selector">
+            <button class="speed-btn active" data-speed="3000">3s</button>
+            <button class="speed-btn" data-speed="1500">1.5s</button>
+            <button class="speed-btn" data-speed="800">0.8s</button>
+          </div>
+        </div>
+
+        <button id="toggle-sim-btn" class="primary-btn pause">
+          <span class="btn-icon">⏸</span> <span id="toggle-sim-text">Pause Arena</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO / LANDING SECTION -->
+  <section class="landing-section">
+    <div class="landing-content-wrapper">
+      <!-- Bento Badge styled like YC Badge -->
+      <div class="ycom-cert-head-wrapper">
+        <div class="cert-img-wrapper">
+          <span class="cert-triangle">▲</span>
+        </div>
+        <div class="cert-text-wrapper">
+          <div>Built on Bento SDK</div>
+        </div>
+      </div>
+      
+      <h1 class="landing-heading">The <span class="text-gradient">Predictive Intelligence Engine</span> behind Autonomous Betting</h1>
+      
+      <p class="landing-body">
+        Observe, audit, and spawn autonomous agents trading in real-time prediction market duels. 
+        Utilizing Bento SDK's smart accounts, bots verify pool liquidity, estimate slippage, and swap USDC.
+      </p>
+      
+      <div class="landing-cta-wrapper">
+        <a href="#arena-dashboard" class="navbar-cta-wrapper">
+          <span class="text-block">Explore Dashboard</span>
+          <div class="enlarge-circle"></div>
+        </a>
+        <a href="https://docs.bento.fun" target="_blank" class="button-secondary">
+          <span>Read SDK Documentation</span>
+          <div class="highlight-line"></div>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Hero Illustration / Telemetry Graphic -->
+    <div class="landing-image-wrapper">
+      <div class="telemetry-card">
+        <div class="telemetry-card-header">
+          <div class="dot-red"></div>
+          <div class="dot-yellow"></div>
+          <div class="dot-green"></div>
+          <span class="title">BENTO CORE AMM CONTRACT</span>
+        </div>
+        <div class="telemetry-card-body">
+          <div class="radial-odds-wrapper">
+            <svg class="radial-svg" viewBox="0 0 100 100">
+              <circle class="radial-track" cx="50" cy="50" r="40" />
+              <circle class="radial-fill" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="80" />
+            </svg>
+            <div class="radial-center">
+              <span class="val">68%</span>
+              <span class="lbl">YES odds</span>
+            </div>
+          </div>
+          <div class="metrics-mini">
+            <div class="m-item">
+              <span class="m-val">$39,240</span>
+              <span class="m-lbl">Total Pool Liquidity</span>
+            </div>
+            <div class="m-item">
+              <span class="m-val">2.4%</span>
+              <span class="m-lbl">Avg Slippage</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS / STATS SECTION -->
+  <section class="metrics-section grid">
+    <div class="metrics-content-wrapper">
+      <div class="metrics-number-wrapper metric" id="stat-volume">$0.00 USDC</div>
+      <div class="metrics-copy-wrapper">Total Traded Volume</div>
+      <div class="highlight-line"></div>
+    </div>
+    <div class="metrics-content-wrapper">
+      <div class="metrics-number-wrapper metric" id="stat-bets">0</div>
+      <div class="metrics-copy-wrapper">Active Bets Placed</div>
+      <div class="highlight-line"></div>
+    </div>
+    <div class="metrics-content-wrapper">
+      <div class="metrics-number-wrapper metric" id="stat-agents">0</div>
+      <div class="metrics-copy-wrapper">Registered Smart Wallets</div>
+      <div class="highlight-line"></div>
+    </div>
+    <div class="metrics-content-wrapper">
+      <div class="metrics-number-wrapper metric dev-host">internal-server.bento.fun</div>
+      <div class="metrics-copy-wrapper">Bento SDK Endpoint</div>
+      <div class="highlight-line"></div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD WRAPPER -->
+  <div class="app-container" id="arena-dashboard">
+    
+    <!-- MAIN GRID -->
+    <main class="app-grid">
+      
+      <!-- LEFT COLUMN: MARKETS & BOT BUILDER -->
+      <div class="left-column">
+        
+        <!-- MARKETS SECTION -->
+        <section class="section-container">
+          <div class="section-header">
+            <h2>Active Prediction Markets</h2>
+            <span class="badge" id="market-count">0 Markets</span>
+          </div>
+          <div class="markets-grid" id="markets-list">
+            <div class="loading-state">Loading active markets...</div>
+          </div>
+        </section>
+
+        <!-- ADD AGENT FORM -->
+        <section class="section-container">
+          <div class="section-header">
+            <h2>Spawn Autonomous Agent</h2>
+          </div>
+          <form id="add-bot-form" class="bot-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="bot-name">Agent Name</label>
+                <input type="text" id="bot-name" placeholder="e.g. Arbitrageur Omega" required maxlength="25">
+              </div>
+              <div class="form-group">
+                <label for="bot-strategy">Strategy Logic</label>
+                <select id="bot-strategy" required>
+                  <option value="Trend Follower">Trend Follower (Momentum)</option>
+                  <option value="Contrarian">Contrarian (Buy Cheap Options)</option>
+                  <option value="Random Walk">Chaos Monkey (Random Walk)</option>
+                  <option value="High Impact Speculator">High Impact Whale (Large Stakes)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="bot-balance">Starting Balance (USDC)</label>
+                <input type="number" id="bot-balance" value="1000" min="100" max="10000" required>
+              </div>
+              <div class="form-group">
+                <label for="bot-color">Indicator Color</label>
+                <div class="color-picker-grid">
+                  <input type="radio" id="col-1" name="bot-color" value="#4f46e5" checked><label for="col-1" style="background:#4f46e5;"></label>
+                  <input type="radio" id="col-2" name="bot-color" value="#0d9488"><label for="col-2" style="background:#0d9488;"></label>
+                  <input type="radio" id="col-3" name="bot-color" value="#ea580c"><label for="col-3" style="background:#ea580c;"></label>
+                  <input type="radio" id="col-4" name="bot-color" value="#be123c"><label for="col-4" style="background:#be123c;"></label>
+                  <input type="radio" id="col-5" name="bot-color" value="#7c3aed"><label for="col-5" style="background:#7c3aed;"></label>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="submit-btn">
+              <span>Spawn Bot & Authorize JWT</span>
+            </button>
+          </form>
+        </section>
+
+      </div>
+
+      <!-- RIGHT COLUMN: BOT ROSTER & REAL-TIME LEDGER -->
+      <div class="right-column">
+        
+        <!-- AGENTS ROSTER -->
+        <section class="section-container">
+          <div class="section-header">
+            <h2>Authorized Agent Wallet Registry</h2>
+            <span class="badge" id="bot-count">0 Bots</span>
+          </div>
+          <div class="bots-list" id="bots-list">
+            <div class="loading-state">Loading agents...</div>
+          </div>
+        </section>
+
+        <!-- LIVE ACTIVITY TAPE -->
+        <section class="section-container terminal-section">
+          <div class="section-header">
+            <h2>Live Arena Ledger & Logs</h2>
+            <div class="tabs">
+              <button class="tab-btn active" id="tab-logs">Bot Thoughts</button>
+              <button class="tab-btn" id="tab-bets">Settled Bets</button>
+            </div>
+          </div>
+          <div class="terminal-body" id="terminal-content">
+            <div class="terminal-line">[16:00:00] Initializing AgentArena terminal logs...</div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="app-footer">
+      <div class="footer-content">
+        <p>AgentArena demo using <strong>@bento.fun/sdk</strong> patterns. In-memory simulated prediction market contracts settle instantly.</p>
+        <div class="footer-links">
+          <a href="https://docs.bento.fun" target="_blank" rel="noopener noreferrer">Bento SDK Docs</a>
+          <span class="dot-separator">•</span>
+          <a href="https://github.com/Bentodotfun/bento.fun" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- BOT DECISION DETAIL MODAL -->
+  <div id="bot-modal" class="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="bot-header-info">
+          <span class="bot-avatar-large" id="modal-bot-avatar"></span>
+          <div>
+            <h3 id="modal-bot-name">Bot Detail</h3>
+            <span class="badge" id="modal-bot-strategy">Strategy</span>
+          </div>
+        </div>
+        <button class="close-btn" id="close-modal-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-stats-grid">
+          <div class="modal-stat">
+            <span class="stat-lbl">USDC Balance</span>
+            <span class="stat-val" id="modal-bot-balance">$0.00</span>
+          </div>
+          <div class="modal-stat">
+            <span class="stat-lbl">Initial Balance</span>
+            <span class="stat-val" id="modal-bot-initial">$0.00</span>
+          </div>
+          <div class="modal-stat">
+            <span class="stat-lbl">Net Profit / PnL</span>
+            <span class="stat-val" id="modal-bot-pnl">$0.00</span>
+          </div>
+        </div>
+
+        <div class="code-section">
+          <h4>Agent Decision Logic (Simple Demo Strategy)</h4>
+          <p class="code-desc">This logic runs on the server every time the agent performs a tick action:</p>
+          <pre><code id="modal-bot-code">Loading code block...</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
