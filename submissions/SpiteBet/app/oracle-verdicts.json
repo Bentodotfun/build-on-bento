@@ -1,0 +1,95 @@
+{
+  "a9b1101d6eef1ff2b2ac4735027a3111d58b48412b3c867bbe5adf8622447011": {
+    "status": "judged",
+    "duelId": "a9b1101d6eef1ff2b2ac4735027a3111d58b48412b3c867bbe5adf8622447011",
+    "goal": "i will make 5 commits on github",
+    "username": "AfreenInnovates",
+    "target": 1,
+    "commitsFound": 9,
+    "commits": [
+      {
+        "message": "codes up to date",
+        "sha": "b31c507",
+        "repo": "AfreenInnovates/hackathon",
+        "at": 1784372601000
+      },
+      {
+        "message": "scripts to get the jwt token, authentication, check username etc.",
+        "sha": "6cb93b2",
+        "repo": "AfreenInnovates/hackathon",
+        "at": 1784372516000
+      },
+      {
+        "message": "icons",
+        "sha": "d9329aa",
+        "repo": "AfreenInnovates/hackathon",
+        "at": 1784372457000
+      },
+      {
+        "message": "gitignore",
+        "sha": "fd450dc",
+        "repo": "AfreenInnovates/hackathon",
+        "at": 1784371789000
+      },
+      {
+        "message": "packages for testing",
+        "sha": "24c4cc4",
+        "repo": "AfreenInnovates/hackathon",
+        "at": 1784371774000
+      },
+      {
+        "message": "checking available markets",
+        "sha": "bcc164b",
+        "repo": "AfreenInnovates/hackathon",
+        "at": 1784371702000
+      },
+      {
+        "message": "some designs generated",
+        "sha": "ac5dfab",
+        "repo": "AfreenInnovates/hackathon",
+        "at": 1784371664000
+      },
+      {
+        "message": "set of responses before hackathon",
+        "sha": "3c91133",
+        "repo": "AfreenInnovates/hackathon",
+        "at": 1784371590000
+      },
+      {
+        "message": "testing bento",
+        "sha": "e57f9bc",
+        "repo": "AfreenInnovates/hackathon",
+        "at": 1784371556000
+      }
+    ],
+    "passed": true,
+    "substantiveCount": 7,
+    "reasoning": "Multiple commits introduced significant code changes and additions, such as scripts, authentication, and testing packages.",
+    "roast": "Looks like someone's been hacking away, but don't get too comfy, 9 commits don't make a GitHub god",
+    "anakinNote": "anakin unavailable ([scraper_error] 'NoneType' object has no attribute 'get')",
+    "judgedAt": 1784375178936,
+    "winningOptionIndex": 0,
+    "winningSide": "believers"
+  },
+  "9f42e01312e06bb657e4cd59779c40fe2df4b1f9a598fcf2cb65d32845bf71d6": {
+    "status": "unverifiable",
+    "duelId": "9f42e01312e06bb657e4cd59779c40fe2df4b1f9a598fcf2cb65d32845bf71d6",
+    "goal": "Will merest_slayer ship the SpiteBet demo before midnight?",
+    "message": "No GitHub username was attached to this trap, so the oracle cannot check it.",
+    "judgedAt": 1784375016061
+  },
+  "6a74ee8bd2ca1ac9f3a31f1733d4725e852e8b4fa1d989c8419eb6f5bea6cffe": {
+    "status": "unverifiable",
+    "duelId": "6a74ee8bd2ca1ac9f3a31f1733d4725e852e8b4fa1d989c8419eb6f5bea6cffe",
+    "goal": "Test colon-tags+desc 15117",
+    "message": "No GitHub username was attached to this trap, so the oracle cannot check it.",
+    "judgedAt": 1784375016070
+  },
+  "d8136c981e92ccbc8004319745fb3a7286d627f1411a549dcb61660c0f14331c": {
+    "status": "unverifiable",
+    "duelId": "d8136c981e92ccbc8004319745fb3a7286d627f1411a549dcb61660c0f14331c",
+    "goal": "Will afreen push 5 real commits before 8PM?",
+    "message": "No GitHub username was attached to this trap, so the oracle cannot check it.",
+    "judgedAt": 1784375291874
+  }
+}
