@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dibs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Inter:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container" id="app">
+    <!-- Header -->
+    <header class="tm-header">
+      <span class="tm-header-icon">⚡</span>
+      <span class="tm-header-wordmark">Dibs</span>
+    </header>
+
+    <!-- Setup view (first-run) -->
+    <div id="setup-view" class="tm-setup" style="display: none;">
+      <p class="tm-setup-text">Enter your X handle to get started. We'll use this to track your bets and streaks.</p>
+      <div class="tm-setup-field">
+        <input type="text" id="x-handle-input" placeholder="@yourhandle" />
+        <button id="save-handle-btn" class="tm-btn tm-btn-zap">Confirm</button>
+      </div>
+      <p class="tm-setup-note">No wallet needed — we handle everything for you.</p>
+    </div>
+
+    <!-- Main view -->
+    <div id="main-view" style="display: none;">
+
+      <!-- Stats strip -->
+      <section class="tm-stats-strip">
+        <div class="tm-stat-block" id="stat-wins">
+          <span class="tm-stat-value" data-count-to="0">0</span>
+          <span class="tm-stat-label">Wins</span>
+        </div>
+        <div class="tm-stat-block" id="stat-losses">
+          <span class="tm-stat-value" data-count-to="0">0</span>
+          <span class="tm-stat-label">Losses</span>
+        </div>
+        <div class="tm-stat-block" id="stat-streak">
+          <span class="tm-stat-value" data-count-to="0">0</span>
+          <span class="tm-stat-label">Streak</span>
+        </div>
+        <div class="tm-stat-block" id="stat-credit">
+          <span class="tm-stat-value" data-count-to="0">0</span>
+          <span class="tm-stat-label">Credit</span>
+        </div>
+      </section>
+
+      <!-- Recent markets -->
+      <section class="tm-section">
+        <h2 class="tm-section-title">Recent Markets</h2>
+        <div id="markets-list" class="tm-markets-list">
+          <div class="tm-loading">Loading…</div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="tm-footer">
+        <a href="https://testnet.bento.fun" target="_blank" class="tm-footer-link">
+          View on Bento →
+        </a>
+      </footer>
+    </div>
+
+    <!-- Betting modal -->
+    <div id="betting-modal" class="tm-modal" style="display: none;">
+      <div class="tm-modal-overlay"></div>
+      <div class="tm-modal-content">
+        <div class="tm-betting-header">
+          <button class="tm-betting-close" id="betting-close-btn">✕</button>
+          <h2>Place Bet</h2>
+        </div>
+
+        <div class="tm-betting-body">
+          <div class="tm-betting-question" id="betting-question"></div>
+
+          <div class="tm-betting-odds" id="betting-odds">
+            <div class="tm-odds-pair">
+              <span class="tm-odds-label">YES</span>
+              <span class="tm-odds-value" id="odds-yes">50%</span>
+            </div>
+            <div class="tm-odds-pair">
+              <span class="tm-odds-label">NO</span>
+              <span class="tm-odds-value" id="odds-no">50%</span>
+            </div>
+          </div>
+
+          <div class="tm-betting-options">
+            <button class="tm-bet-option tm-bet-yes" id="bet-yes-btn" data-pick="true">
+              <span class="tm-option-circle"></span>
+              <span>YES</span>
+            </button>
+            <button class="tm-bet-option tm-bet-no" id="bet-no-btn" data-pick="false">
+              <span class="tm-option-circle"></span>
+              <span>NO</span>
+            </button>
+          </div>
+
+          <div class="tm-betting-stake">
+            <label class="tm-stake-label">Stake (credits)</label>
+            <input type="number" id="stake-input" class="tm-stake-input" min="1" placeholder="10" value="10" />
+          </div>
+
+          <button class="tm-btn tm-btn-place-bet" id="place-bet-btn" disabled>Place Bet</button>
+          <button class="tm-btn tm-btn-place-bet" id="betting-ai-btn" style="margin-top: 8px;">🤖 Get AI Analysis</button>
+          <a id="betting-bento-link" href="" target="_blank" class="tm-pool-link" style="margin-top: 8px; display: block;">
+            View on Bento Testnet →
+          </a>
+          <div class="tm-pool-ai-section" id="betting-ai-section" style="display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.1);">
+            <h4 style="font-size: 12px; font-weight: 600; margin: 0 0 8px 0;">AI Prediction</h4>
+            <p class="tm-pool-ai-analysis" id="betting-ai-analysis"></p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; font-size: 11px;">
+              <div>
+                <span style="color: rgba(0,0,0,0.6);">Predict: </span>
+                <span id="betting-ai-prediction" style="font-weight: 600; font-size: 13px;"></span>
+              </div>
+              <div>
+                <span style="color: rgba(0,0,0,0.6);">Confidence: </span>
+                <span id="betting-ai-confidence" style="font-weight: 600;">-</span>%
+              </div>
+            </div>
+          </div>
+          <div class="tm-betting-error" id="betting-error"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

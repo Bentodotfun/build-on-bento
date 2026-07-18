@@ -1,0 +1,564 @@
+/* ── Design tokens (brand system) ── */
+:root {
+  --paper: #FFFDF7;
+  --ink: #14141A;
+  --electric-blue: #3D5AFE;
+  --verdict-green: #00E676;
+  --verdict-red: #FF3D57;
+  --zap-yellow: #FFE01B;
+  --card-lilac: #F0EEFF;
+  --gray-50: #F9F9FB;
+  --gray-200: #E4E4EC;
+  --gray-400: #9D9DAF;
+  --gray-600: #5E5E72;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 380px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+.popup-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+/* ── Header ── */
+.tm-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  background: var(--electric-blue);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+}
+
+.tm-header-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.tm-header-wordmark {
+  margin-top: 2px;
+}
+
+/* ── Setup view ── */
+.tm-setup {
+  padding: 24px 20px;
+}
+
+.tm-setup-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--gray-600);
+  margin-bottom: 16px;
+}
+
+.tm-setup-field {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.tm-setup-field input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--ink);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.tm-setup-field input:focus {
+  border-color: var(--electric-blue);
+}
+
+.tm-setup-field input::placeholder {
+  color: var(--gray-400);
+}
+
+.tm-setup-note {
+  font-size: 12px;
+  color: var(--gray-400);
+  text-align: center;
+}
+
+/* ── Shared buttons ── */
+.tm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s, opacity 0.2s;
+}
+
+.tm-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.tm-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.tm-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.tm-btn-zap {
+  background: var(--zap-yellow);
+  color: var(--ink);
+  box-shadow: 0 1px 4px rgba(255, 224, 27, 0.35);
+}
+
+.tm-btn-zap:hover:not(:disabled) {
+  box-shadow: 0 2px 8px rgba(255, 224, 27, 0.5);
+}
+
+/* ── Stats strip ── */
+.tm-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 16px 16px 12px;
+}
+
+.tm-stat-block {
+  background: var(--card-lilac);
+  border-radius: var(--radius-md);
+  padding: 10px 4px;
+  text-align: center;
+}
+
+.tm-stat-value {
+  display: block;
+  font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--electric-blue);
+  line-height: 1.2;
+  transition: color 0.3s;
+}
+
+.tm-stat-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-top: 2px;
+}
+
+/* ── Section ── */
+.tm-section {
+  padding: 4px 16px 16px;
+}
+
+.tm-section-title {
+  font-family: 'Bricolage Grotesque', 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+/* ── Markets list ── */
+.tm-markets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.tm-market-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--card-lilac);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.15s, transform 0.12s;
+  opacity: 0;
+  animation: tm-fade-slide-in 0.35s ease forwards;
+}
+
+.tm-market-row:hover {
+  background: #E4DFFF;
+  transform: translateX(2px);
+}
+
+.tm-market-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tm-market-status-dot.tm-dot-true {
+  background: var(--verdict-green);
+}
+
+.tm-market-status-dot.tm-dot-false {
+  background: var(--verdict-red);
+}
+
+.tm-market-status-dot.tm-dot-pending {
+  background: var(--gray-400);
+}
+
+.tm-market-claim {
+  flex: 1;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.tm-market-odds {
+  font-family: 'Space Mono', 'Bricolage Grotesque', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--electric-blue);
+  flex-shrink: 0;
+}
+
+/* ── Market rows stagger via animation-delay (set by JS) ── */
+@keyframes tm-fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Loading / Empty / Error states ── */
+.tm-loading,
+.tm-empty,
+.tm-error {
+  text-align: center;
+  padding: 24px 16px;
+  font-size: 13px;
+  color: var(--gray-400);
+}
+
+.tm-error {
+  color: var(--verdict-red);
+}
+
+/* ── Footer ── */
+.tm-footer {
+  text-align: center;
+  padding: 12px 16px 16px;
+  border-top: 1px solid var(--gray-200);
+  margin-top: auto;
+}
+
+.tm-footer-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--electric-blue);
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.tm-footer-link:hover {
+  opacity: 0.75;
+}
+
+/* ── Scrollbar ── */
+.tm-markets-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.tm-markets-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tm-markets-list::-webkit-scrollbar-thumb {
+  background: var(--gray-200);
+  border-radius: 2px;
+}
+
+/* ── Betting Modal ── */
+.tm-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm-modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(20, 20, 26, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.tm-modal-content {
+  position: relative;
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  max-width: 360px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 1001;
+}
+
+.tm-betting-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-bottom: 1px solid var(--gray-200);
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+}
+
+.tm-betting-header h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  flex: 1;
+}
+
+.tm-betting-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--gray-600);
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.15s;
+}
+
+.tm-betting-close:hover {
+  color: var(--ink);
+}
+
+.tm-betting-body {
+  padding: 20px;
+}
+
+.tm-betting-question {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.tm-betting-odds {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: var(--gray-50);
+  border-radius: var(--radius-md);
+}
+
+.tm-odds-pair {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.tm-odds-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--gray-600);
+  letter-spacing: 0.03em;
+}
+
+.tm-odds-value {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Space Mono', monospace;
+  color: var(--electric-blue);
+}
+
+.tm-betting-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.tm-bet-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-600);
+  font-family: inherit;
+}
+
+.tm-bet-option:hover {
+  border-color: var(--electric-blue);
+  background: var(--gray-50);
+}
+
+.tm-bet-option.tm-bet-yes {
+  color: var(--verdict-green);
+}
+
+.tm-bet-option.tm-bet-yes:hover {
+  border-color: var(--verdict-green);
+}
+
+.tm-bet-option.tm-bet-no {
+  color: var(--verdict-red);
+}
+
+.tm-bet-option.tm-bet-no:hover {
+  border-color: var(--verdict-red);
+}
+
+.tm-bet-option.active {
+  border-width: 2px;
+  background: var(--card-lilac);
+}
+
+.tm-bet-option.active.tm-bet-yes {
+  border-color: var(--verdict-green);
+  background: rgba(0, 230, 118, 0.08);
+}
+
+.tm-bet-option.active.tm-bet-no {
+  border-color: var(--verdict-red);
+  background: rgba(255, 61, 87, 0.08);
+}
+
+.tm-option-circle {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--gray-200);
+  border-radius: 50%;
+  transition: all 0.15s;
+}
+
+.tm-bet-option:hover .tm-option-circle {
+  border-color: currentColor;
+}
+
+.tm-bet-option.active .tm-option-circle {
+  background: currentColor;
+  border-color: currentColor;
+}
+
+.tm-betting-stake {
+  margin-bottom: 14px;
+}
+
+.tm-stake-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--gray-600);
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+
+.tm-stake-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: 'Space Mono', monospace;
+  color: var(--ink);
+  background: #fff;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s;
+}
+
+.tm-stake-input:focus {
+  border-color: var(--electric-blue);
+}
+
+.tm-btn-place-bet {
+  width: 100%;
+  background: var(--electric-blue);
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.tm-btn-place-bet:hover:not(:disabled) {
+  box-shadow: 0 2px 8px rgba(61, 90, 254, 0.4);
+}
+
+.tm-btn-place-bet:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tm-betting-error {
+  font-size: 12px;
+  color: var(--verdict-red);
+  text-align: center;
+  min-height: 18px;
+}
