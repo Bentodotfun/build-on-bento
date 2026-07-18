@@ -1,0 +1,24 @@
+{
+  "name": "agentarena",
+  "version": "1.0.0",
+  "description": "AgentArena - Bots betting on prediction markets using Bento",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "bento",
+    "prediction-markets",
+    "bots",
+    "simulation",
+    "agents"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bento.fun/sdk": "^0.7.0",
+    "express": "^4.19.2"
+  }
+}
