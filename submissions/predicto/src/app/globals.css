@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    
+    --card: #ffffff;
+    --card-foreground: #0f172a;
+    
+    --border: #e2e8f0;
+    --input: #f1f5f9;
+    --primary: #fa5025;
+    --primary-foreground: #ffffff;
+    
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
+    
+    --accent: #fff5f2;
+    --accent-foreground: #fa5025;
+    
+    --yes-bg: #fff5f2;
+    --yes-text: #fa5025;
+    --yes-border: #ffd2c7;
+    --yes-hover: #ffe5df;
+    
+    --no-bg: #f8fafc;
+    --no-text: #64748b;
+    --no-border: #e2e8f0;
+    --no-hover: #f1f5f9;
+  }
+
+  .dark {
+    --background: #000000;
+    --foreground: #f8fafc;
+    
+    --card: #090a0f;
+    --card-foreground: #f8fafc;
+    
+    --border: #15181f;
+    --input: #0f1015;
+    --primary: #fa5025;
+    --primary-foreground: #000000;
+    
+    --muted: #0f1015;
+    --muted-foreground: #94a3b8;
+    
+    --accent: rgba(250, 80, 37, 0.1);
+    --accent-foreground: #fa5025;
+    
+    --yes-bg: rgba(250, 80, 37, 0.15);
+    --yes-text: #fa5025;
+    --yes-border: rgba(250, 80, 37, 0.3);
+    --yes-hover: rgba(250, 80, 37, 0.25);
+    
+    --no-bg: #0d0e12;
+    --no-text: #94a3b8;
+    --no-border: #1f2229;
+    --no-hover: #17181f;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Polymarket style panels */
+.pm-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.pm-card:hover {
+  border-color: var(--muted-foreground);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.dark .pm-card:hover {
+  border-color: #fa5025;
+  box-shadow: 0 4px 20px rgba(250, 80, 37, 0.05);
+}
+
+.btn-yes {
+  background-color: var(--yes-bg);
+  color: var(--yes-text);
+  border: 1px solid var(--yes-border);
+}
+
+.btn-yes:hover {
+  background-color: var(--yes-hover);
+}
+
+.btn-no {
+  background-color: var(--no-bg);
+  color: var(--no-text);
+  border: 1px solid var(--no-border);
+}
+
+.btn-no:hover {
+  background-color: var(--no-hover);
+}
+
+/* Glassmorphism drawer */
+.glass-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}

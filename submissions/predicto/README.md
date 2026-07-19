@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="submissions/predicto/results/dashboard.png" alt="Predicto Dashboard" width="100%"/>
+<img src="results/dashboard.png" alt="Predicto Dashboard" width="100%"/>
 
 # 🔮 Predicto — AI Prediction Intelligence Engine for Bento
 
@@ -54,8 +54,7 @@ Every **serious bettor** on Bento will eventually want AI insights before commit
 │                        PREDICTO ENGINE                       │
 └─────────────────────────────────────────────────────────────┘
 
-   Bento SDK                    AnaKin
-    + APIs
+   Bento SDK                    AnaKing + APIs
        ↓                              ↓
   Market Data              Live Web Context (news,
   (YES/NO odds,             Reddit, GitHub, commits,
@@ -100,14 +99,14 @@ Each market card exposes a **"Analyze"** button that triggers a full AI analysis
 </td>
 <td width="50%">
 
-<img src="submissions/predicto/results/predicto_response.png" alt="PredictGPT Intelligence Report" width="100%"/>
+<img src="results/predicto_response.png" alt="PredictGPT Intelligence Report" width="100%"/>
 
 </td>
 </tr>
 <tr>
 <td width="50%">
 
-<img src="submissions/predicto/results/detailed_response.png" alt="Detailed Intelligence Report" width="100%"/>
+<img src="results/detailed_response.png" alt="Detailed Intelligence Report" width="100%"/>
 
 </td>
 <td width="50%">
@@ -131,14 +130,14 @@ Create invite-only **prediction leagues** with friends, colleagues, or classmate
 </td>
 <td width="50%">
 
-<img src="submissions/predicto/results/private_room.png" alt="Private Prediction Rooms" width="100%"/>
+<img src="results/private_room.png" alt="Private Prediction Rooms" width="100%"/>
 
 </td>
 </tr>
 <tr>
 <td width="50%">
 
-<img src="submissions/predicto/results/create_market.png" alt="Create Market Modal" width="100%"/>
+<img src="results/create_market.png" alt="Create Market Modal" width="100%"/>
 
 </td>
 <td width="50%">
@@ -255,7 +254,7 @@ npm start
 3. Generate a new Builder API key
 4. Copy and paste it as `NEXT_PUBLIC_BENTO_BUILDER_API_KEY`
 
-### Anakin (AnaKin) Scraper API Key
+### Anakin (AnaKing) Scraper API Key
 1. Visit [https://anakin.ai](https://anakin.ai) and create an account
 2. Go to Dashboard → API Keys
 3. Generate a new API key
@@ -358,6 +357,18 @@ git checkout -b feature/your-feature-name
 git commit -m "feat: add your feature"
 git push origin feature/your-feature-name
 ```
+
+---
+
+## 📬 Contact
+
+| | |
+|---|---|
+| **Team** | Predicto |
+| **Builder** | Mannan Shariff |
+| **Email** | mannan@predicto.fun |
+| **Bento API Key** | `bnt_live_4cc4bb85_adbebf85e37e0ff79fdde553` |
+
 ---
 
 ## 📄 License
